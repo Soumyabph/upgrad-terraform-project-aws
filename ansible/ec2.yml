@@ -1,0 +1,13 @@
+plugin: aws_ec2
+regions:
+  - us-east-1
+filters:
+  "tag:Environment": dev
+keyed_groups:
+  - key: tags.Name
+    prefix: name
+hostnames:
+  - private-ip-address
+compose:
+  ansible_user: ubuntu
+  ansible_ssh_private_key_file: ~/.ssh/my-key.pem

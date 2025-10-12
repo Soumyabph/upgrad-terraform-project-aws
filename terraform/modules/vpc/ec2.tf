@@ -7,6 +7,7 @@ resource "aws_instance" "public_ec2" {
   key_name = aws_key_pair.bastionconnect.key_name
   tags = {
     Name = "Bastion"
+    Environment = "Dev"
   }
 }
 resource "aws_instance" "private_ec2" {
@@ -19,6 +20,7 @@ resource "aws_instance" "private_ec2" {
 
   tags = {
     Name = "Jenkins"
+    Environment = "Dev"
   }
 }
 resource "aws_instance" "private_ec2_1" {
@@ -31,5 +33,6 @@ resource "aws_instance" "private_ec2_1" {
 
   tags = {
     Name = "App"
+    Environment = "Dev"
   }
 }
