@@ -1,1 +1,2 @@
-ansible-playbook -i inventory.ini ec2.yml
+ansible-playbook -i inventory.ini install_docker.yml
+ansible-playbook -i ec2.yml install_docker.yml
