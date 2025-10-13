@@ -46,9 +46,16 @@ resource "aws_security_group" "private_sg" {
   vpc_id      = aws_vpc.this.id
 
   ingress {
-    description     = "Allow HTTP from Public SG"
+    description     = "Allow HTTP from Private SG"
     from_port       = 22
     to_port         = 22
+    protocol        = "tcp"
+   cidr_blocks      = [var.cidr_block]
+  }
+ingress {
+    description     = "Allow HTTP from Private SG"
+    from_port       = 8080
+    to_port         = 8080
     protocol        = "tcp"
    cidr_blocks      = [var.cidr_block]
   }
