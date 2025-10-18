@@ -1,14 +1,14 @@
 provider "aws" {
   region = "us-east-1"
 }
-#terraform {
- # backend "s3" {
-  #  bucket         = "awss3terraformproject"
-   # key            = "project/vpc/terraform.tfstate"
-    #region         = "us-east-1"
-    #encrypt        = true
-  #}
-#}
+terraform {
+  backend "s3" {
+    bucket         = "awss3terraformproject"
+    key            = "project/vpc/terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+  }
+}
 
 module "vpc" {
   source        = "../../modules/vpc"
